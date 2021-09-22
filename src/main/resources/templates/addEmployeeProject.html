@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+	<title>Developer</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" th:href="@{../css/bootstrap.min.css}" />
+</head>
+<body>
+<div class="container">
+	<h1>Neue mitarbeiter</h1>
+	<form th:action="@{/employee/{id}/projects(id=${employee.id})}" method="get" enctype="multipart/form-data" >
+	<div class="col-md-4">
+		<div class="panel panel-default">
+		 <div class="panel-heading">Mitarbeiter Info</div>
+		 <div class="panel-body" style="padding-left: 5px;">
+			Name: <b th:text="${employee.firstName}"></b> <b th:text="${employee.lastName}"></b><br/>
+			Email: <span th:text="${employee.email}"></span><br/>
+			Abteilung: <span th:text="${employee.department}"></span><br/>
+			<br/>Projekte:
+				<span th:each="project : ${employee.projects}">
+					<br/>&nbsp;&nbsp;<span th:text="${project.name}"></span>
+				</span>
+				<br/>
+				</div>
+		</div>
+			<div class="col-md-6">
+			<select class="form-control" name="projectId">
+				<option th:each="project : ${projects}"
+					th:value="${project.projectId}"
+					th:text="${project.name}">Projekte</option>
+			</select>
+			</div>
+			<hr>
+		<input type="submit" name="action" class="btn btn-primary" value="save"/></input>
+		<input type="submit" name="action" class="btn btn-secondary" value="Cancel"></input>
+	</div>
+	</form>
+</div>
+</body>
+</html>

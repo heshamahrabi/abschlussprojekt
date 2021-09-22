@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+	  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	  xsi:schemaLocation="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5 ">
+<head>
+	<title>Projekte Liste</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container">
+	<div class="col-md-4">
+		<h1>Mitarbeiter</h1>
+	</div>
+	<div class="col-md-4">
+		<h3 th:inline="text">Willkommen [[${#httpServletRequest.remoteUser}]]</h3>
+	</div>
+	<div class="col-md-4" style="padding:20px 0">
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn btn-danger"/>
+		</form>
+	</div>
+
+	<div style="padding:0 20px">
+		<table class="table table-striped">
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Abteilung</th>
+				<th>Projekte</th>
+				<th>Actions</th>
+			</tr>
+			<tr th:each="employee : ${employees}">
+				<td th:text="${employee.firstName} + ' ' + ${employee.lastName}"></td>
+				<td th:text="${employee.email}"></td>
+				<td th:text="${employee.department}"></td>
+				<td>
+				<span th:each="project,iterStat : ${employee.projects}">
+					<span th:text="${project.name}"/><th:block th:if="${!iterStat.last}">,</th:block>
+				</span>
+				</td>
+				<td>
+					<a th:href="@{/addEmployeeProject/{id}(id=${employee.id})}" class="btn btn-primary btn-sm">Projekt
+						hinfügen</a>
+					<a th:href="@{/edit/{id}(id=${employee.id})}" class="btn btn-primary btn-sm">Bearbeiten</a>
+					<a sec:authorize="hasRole('ADMIN')" th:href="@{/delete/{id}(id=${employee.id})}"
+					   class="btn btn-danger btn-sm">Löschen</a>
+
+				</td>
+			</tr>
+		</table>
+		<a href="/add" class="btn btn-primary">Neu Mitarbeiter</a>
+	</div>
+</div>
+</body>
+</html>

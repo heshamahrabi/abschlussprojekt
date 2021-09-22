@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Mitarbeiter Hinfügen</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+<div class="container">
+	<h1>Neue Mitarbeirter</h1>
+	<div class="col-md-4">
+		<form th:object="${employee}" th:action="@{save}" action="#" method="post">
+			<input type="text" th:field="*{firstName}" class="form-control"
+				placeholder="Vor Name" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="text" th:field="*{lastName}" class="form-control"
+				placeholder="Nach Name" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="text" th:field="*{department}" class="form-control"
+				placeholder="Abteilung" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="text" th:field="*{email}" class="form-control"
+				placeholder="Email" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="submit" class="btn btn-primary" value="Save"></input>
+		</form>
+	</div>
+</div>
+</body>
+</html>
