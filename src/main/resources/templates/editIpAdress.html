@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title> IpList Bearbeiten</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" th:href="@{../css/bootstrap.min.css}" />
+</head>
+<body>
+<div class="container">
+    <h1>IpList Bearbeiten</h1>
+    <div class="col-md-4">
+        <form th:object="${ipAdress}" th:action="@{../ips}" action="#" method="post">
+            <input type="hidden" th:field="*{id}" class="form-control"/>
+            <input type="text" th:field="*{ipLan}" class="form-control"
+                   placeholder="ipLan" />
+            <div style="clear: both; display: block; height: 10px;"></div>
+            <input type="text" th:field="*{ipVpn}" class="form-control"
+                   placeholder="ipVpn" />
+            <div style="clear: both; display: block; height: 10px;"></div>
+            <input type="text" th:field="*{ipVm}" class="form-control"
+                   placeholder="ipVm" />
+            <div style="clear: both; display: block; height: 10px;"></div>
+            <input type="text" th:field="*{ddiscription}" class="form-control"
+                   placeholder="Beschreibung" />
+            <div style="clear: both; display: block; height: 10px;"></div>
+            <hr>
+            <input type="submit" name="action" class="btn btn-primary" value="save"/></input>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -20,11 +20,15 @@
 		<form th:action="@{/logout}" method="post">
 			<input type="submit" value="Sign Out" class="btn btn-danger"/>
 		</form>
+		<form th:action="@{/ips}" method="post">
+			<input type="submit" value="ips" class="btn btn-danger"/>
+		</form>
 	</div>
 
 	<div style="padding:0 20px">
 		<table class="table table-striped">
 			<tr>
+				<th>ID</th>
 				<th>Name</th>
 				<th>Email</th>
 				<th>Abteilung</th>
@@ -32,6 +36,7 @@
 				<th>Actions</th>
 			</tr>
 			<tr th:each="employee : ${employees}">
+				<td th:text="${employee.id}"></td>
 				<td th:text="${employee.firstName} + ' ' + ${employee.lastName}"></td>
 				<td th:text="${employee.email}"></td>
 				<td th:text="${employee.department}"></td>
