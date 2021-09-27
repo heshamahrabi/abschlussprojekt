@@ -13,7 +13,7 @@ public class Employee {
 	private String department;
     private String email;
 
-	private Set<Project> cours = new HashSet<Project>(0);
+	private Set<Project> projects = new HashSet<Project>(0);
 
     public Employee() {
     }
@@ -75,11 +75,11 @@ public class Employee {
 	@ManyToMany(cascade = CascadeType.MERGE)
 	@JoinTable(name = "employee_project", joinColumns = { @JoinColumn(name = "id") }, inverseJoinColumns = { @JoinColumn(name = "projectId") })
 	public Set<Project> getProjects() {
-		return this.cours;
+		return this.projects;
 	}
 
 	public void setProjects(Set<Project> projects) {
-		this.cours = projects;
+		this.projects = projects;
 	}
 
 	public boolean hasProject(Project employee) {
