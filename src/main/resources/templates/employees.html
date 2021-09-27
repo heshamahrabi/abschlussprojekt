@@ -44,6 +44,7 @@
 					<a th:href="@{/addEmployeeProject/{id}(id=${employee.id})}" class="btn btn-primary btn-sm">Projekt
 						hinfügen</a>
 					<a th:href="@{/edit/{id}(id=${employee.id})}" class="btn btn-primary btn-sm">Bearbeiten</a>
+					<a th:href="ips" class="btn btn-primary btn-sm">Ip Liste</a>
 					<a sec:authorize="hasRole('ADMIN')" th:href="@{/delete/{id}(id=${employee.id})}"
 					   class="btn btn-danger btn-sm">Löschen</a>
 
