@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <title> Ip Liste Bearbeiten</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" th:href="@{../css/bootstrap.min.css}" />
+</head>
+<body>
+<div class="container">
+    <h1>Ip Liste Bearbeiten</h1>
+    <div class="col-md-4">
+        <form th:object="${ip}" th:action="@{../saveIp}" action="#" method="post">
+            <h4 style="background: #80bdff">PC IP</h4>
+            <input style="background: #efc6cb" type="text" th:field="*{ipPc}" class="form-control"
+                   placeholder="PC IP" />
+            <div style="clear: both; display: block; height: 10px;"></div>
+            <input style="background: #efc6cb" type="text" th:field="*{ipVm}" class="form-control"
+                   placeholder="VM IP" />
+            <div style="clear: both; display: block; height: 10px;"></div>
+            <input style="background: #efc6cb" type="text" th:field="*{ipPrivat}" class="form-control"
+                   placeholder="Privates IP" />
+            <div style="clear: both; display: block; height: 10px;"></div>
+            <input style="background: #efc6cb" type="text" th:field="*{description}" class="form-control"
+                   aria-valuetext="Beschriebnung" />
+            <div style="clear: both; display: block; height: 10px;"></div>
+            <hr>
+            <input type="submit" name="action" class="btn btn-primary" value="Speichern"/></input>
+        </form>
+    </div>
+</div>
+</body>
+</html>

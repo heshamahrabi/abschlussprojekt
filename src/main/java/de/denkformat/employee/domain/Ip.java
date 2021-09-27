@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class Ip {
     private long id;
     private String ipPc;
-    private String ipVw;
+    private String ipVm;
     private String ipPrivat;
     private String description;
 
@@ -15,10 +15,10 @@ public class Ip {
 
 
 
-    public Ip(long id, String ipPc, String ipVw, String ipPrivat, String description) {
+    public Ip(int id, String ipPc, String ipVm, String ipPrivat, String description) {
         this.id = id;
         this.ipPc = ipPc;
-        this.ipVw = ipVw;
+        this.ipVm = ipVm;
         this.ipPrivat = ipPrivat;
         this.description = description;
     }
@@ -47,12 +47,12 @@ public class Ip {
     }
 
     @Column(name = "ip_vw")
-    public String getIpVw() {
-        return ipVw;
+    public String getIpVm() {
+        return ipVm;
     }
 
-    public void setIpVw(String ipVw) {
-        this.ipVw = ipVw;
+    public void setIpVm(String ipVw) {
+        this.ipVm = ipVw;
     }
 
     @Column(name = "ip_privat")

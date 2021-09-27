@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>IP Hinfügen</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+<div class="container">
+    <h1>Neue IpList</h1>
+    <div class="col-md-4">
+        <form th:object="${ip}" th:action="@{saveIp}" action="#" method="post">
+            <input type="text" th:field="*{ipPc}" class="form-control"
+                   placeholder="PC IP" />
+            <div style="clear: both; display: block; height: 10px;"></div>
+            <input type="text" th:field="*{ipVm}" class="form-control"
+                   placeholder="VM IP" />
+            <div style="clear: both; display: block; height: 10px;"></div>
+            <input type="text" th:field="*{ipPrivat}" class="form-control"
+                   placeholder="Privates IP" />
+            <div style="clear: both; display: block; height: 10px;"></div>
+            <input type="text" th:field="*{description}" class="form-control"
+                   aria-valuetext="Beschriebnung" />
+            <div style="clear: both; display: block; height: 10px;"></div>
+            <input type="submit" class="btn btn-primary" value="saveIp"></input>
+        </form>
+    </div>
+</div>
+</body>
+</html>
